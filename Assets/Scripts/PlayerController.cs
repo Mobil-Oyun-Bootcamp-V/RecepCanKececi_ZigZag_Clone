@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // This region would much better with headers. TO DO...
     Rigidbody _rb;
     [SerializeField] Transform _playerRoot;
     [SerializeField] Transform _light;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
     }
+    // With every click we increase the direction value and mod it to change the direction with if statements.
     void PlayerMove()
     {
         LightMove();
@@ -61,6 +63,7 @@ public class PlayerController : MonoBehaviour
             UIManager.instance.GamePanel();
         }
     }
+    // Checking the collisions. If there is no collision(from tiles) game is over.
     void CollisionCheck()
     {
         if(_collisionCount == 0)
@@ -70,6 +73,7 @@ public class PlayerController : MonoBehaviour
             UIManager.instance.RetryPanel();
         }
     }
+    // Collision value is increase with every trigger enter, and decrease with every exit for collision check.
     private void OnTriggerEnter(Collider other) 
     {
         _collisionCount++;
@@ -101,6 +105,8 @@ public class PlayerController : MonoBehaviour
             _playerRoot.Translate((Vector3.left + Vector3.forward) * Time.deltaTime * _speed);
         }
     }
+    // The light in the scene translates through this method. Position on x of last tile in overlapsphere
+    // is the position of the lamp and transform of light is lerping to it.
     void LightMove()
     {
         Vector3 center = _playerRoot.position;

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoSingleton<LevelManager>
 {
+    //Level Manager is responsible for managing levels of the game. It is designed for multilevel hyper casual
+    // games but I used it anyway with a constant index value of 0.
     [SerializeField] List<GameObject> levels;
     [SerializeField] GameObject _pooler;
     private int _index;
@@ -18,6 +20,8 @@ public class LevelManager : MonoSingleton<LevelManager>
     {
         _index = PlayerPrefs.GetInt("index", 0);
     }
+    // RestartLevel method starts through restart button on UI. Inside this method starts a level load coroutine
+    // in UI Manager.
     public void RestartLevel()
     {
         _pooler.SetActive(false);
@@ -32,6 +36,7 @@ public class LevelManager : MonoSingleton<LevelManager>
         PlayerPrefs.SetInt("index", _index);
         StartCoroutine(UIManager.instance.LevelLoadRoutine(_index));
     }
+    // Level load coroutine starts this ManageLevel method.
     public void ManageLevel(int index)
     {
         if(_currentLevel)

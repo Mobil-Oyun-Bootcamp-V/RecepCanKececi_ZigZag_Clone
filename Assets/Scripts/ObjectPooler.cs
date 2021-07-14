@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ObjectPooler : MonoSingleton<ObjectPooler>
 {
+    // Standart ObjectPooler script that I use from Brackeys.
     [System.Serializable]
     public class Pool
     {

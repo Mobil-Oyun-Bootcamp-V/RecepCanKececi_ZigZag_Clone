@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+   // Game Manager is a state machine that controls the states of the game.
     public enum GameState 
     {
         Prepare,

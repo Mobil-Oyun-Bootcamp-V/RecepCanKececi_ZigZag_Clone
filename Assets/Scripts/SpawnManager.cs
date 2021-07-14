@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 
 public class SpawnManager : MonoBehaviour
 {
+    // Responsible for all spawns, tiles, collectables ...
     private Transform _level;
     private float spawnPosX;
     private float spawnPosZ = -2.12132f;
@@ -15,6 +16,7 @@ public class SpawnManager : MonoBehaviour
         _level = FindObjectOfType<SpawnManager>().transform;
         GenerateStartTiles();
     }
+    // At the start of every game session we spawn certain amount of tile to ready to play.
     private void GenerateStartTiles()
     {
         for(int i = 0; i < 30; i++)

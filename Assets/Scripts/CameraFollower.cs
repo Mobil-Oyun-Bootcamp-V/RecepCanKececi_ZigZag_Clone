@@ -6,7 +6,7 @@ public class CameraFollower : MonoBehaviour
 {
     Camera cam;
     [SerializeField] Transform _playerRoot;
-    [SerializeField] float _offset = 70f;
+    [SerializeField] float _offset = 70f; // Distance between player and camera on z axis.
     private void Start() 
     {
         cam = FindObjectOfType<Camera>();    
@@ -19,7 +19,7 @@ public class CameraFollower : MonoBehaviour
                 
                     break;
                 case GameManager.GameState.MainGame:
-                CamFollow();               
+                CamFollow();     // Camera follow player on main game state only.          
                     break;
                 case GameManager.GameState.FinishGame:   
                                      
